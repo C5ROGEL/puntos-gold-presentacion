@@ -17,7 +17,7 @@ const SlideContent = ({ slide }) => {
           <h1 className="main-title">{slide.title}</h1>
           <p className="main-subtitle">{slide.subtitle}</p>
         </div>
-      
+
         <div className="team-section">
           <h4>Integrantes:</h4>
           <div className="team-grid">
@@ -38,7 +38,7 @@ const SlideContent = ({ slide }) => {
     return (
       <div className="slide-intro">
         <h2 className="slide-title">{slide.title}</h2>
-          <div className="tech-badges">
+        <div className="tech-badges">
           <span className="tech-badge">SwiftUI</span>
           <span className="tech-badge">Flutter</span>
           <span className="tech-badge">REACT</span>
@@ -80,6 +80,29 @@ const SlideContent = ({ slide }) => {
                 <p className="section-text">{section.content}</p>
               )}
 
+              {/* Gráfico SOLO para la sección de rendimiento */}
+              {section.heading === "Consumo en apps complejas" && (
+                <>
+                  <div className="metric-row">
+                    <span>Consumo CPU (apps complejas)</span>
+                    <div className="metric-bar-container">
+                      <div
+                        className="metric-bar metric-bar-swift"
+                        style={{ width: "70%" }}
+                      >
+                        SwiftUI
+                      </div>
+                      <div
+                        className="metric-bar metric-bar-rn"
+                        style={{ width: "90%" }}
+                      >
+                        React Native
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
               {section.items && (
                 <ul className="section-list">
                   {section.items.map((item, i) => (
@@ -106,7 +129,7 @@ const SlideContent = ({ slide }) => {
     );
   }
 
-  // Slide de Contenido con GRID (columns) - SLIDE 14 FIX
+  // Slide de Contenido con GRID (columns)
   if (slide.type === "content-grid") {
     return (
       <div className="slide-content">
@@ -148,7 +171,7 @@ const SlideContent = ({ slide }) => {
     );
   }
 
-  // Fallback para slides no reconocidos
+  // Fallback
   return (
     <div className="slide-content">
       <h2>{slide.title || "Slide"}</h2>

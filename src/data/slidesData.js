@@ -299,6 +299,42 @@ export const slidesData = [
   },
   {
     id: 15,
+    type: "content",
+    title: "Rendimiento SwiftUI vs React Native",
+    sections: [
+      {
+heading: "Consumo en apps complejas",
+        content:
+          "En pruebas de benchmark, las apps nativas con SwiftUI muestran entre un 15% y un 30% menos uso de CPU y memoria que sus equivalentes en React Native, además de tiempos de carga más rápidos.",
+        items: [
+          "CPU: SwiftUI ~15–30% más eficiente que React Native",
+          "Memoria: SwiftUI ~15–20% menos consumo en promedio",
+          "Startup: SwiftUI arranca más rápido por compilación nativa",
+          "React Native se aproxima a nativo en pantallas simples, pero el bridge JS impacta en escenarios intensivos",
+        ],
+      },
+    ],
+  },
+  {
+    id: 16,
+    type: "content",
+    title: "Experiencia de desarrollo y preferencia",
+    sections: [
+      {
+        heading: "Preferencias de los desarrolladores",
+        content:
+          "Encuestas recientes muestran una división clara entre equipos orientados al ecosistema Apple y equipos con fuerte background web.",
+        items: [
+          "≈30% de desarrolladores iOS prefieren SwiftUI por su integración nativa con Apple",
+          "≈28% prefieren React Native por el código compartido y el uso de JavaScript",
+          "React Native ofrece mayor productividad en equipos que ya dominan React",
+          "SwiftUI reduce boilerplate y facilita UIs muy alineadas con Human Interface Guidelines",
+        ],
+      },
+    ],
+  },
+  {
+    id: 17,
     type: "conclusion",
     title: "Conclusión",
     content: "Puntos Gold representa una solución innovadora que:",
