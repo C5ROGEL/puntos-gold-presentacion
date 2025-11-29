@@ -6,8 +6,8 @@ export const slidesData = [
     title: "Puntos Gold",
     subtitle: "Sistema de Fidelización para PyMEs",
     content: {
-      materia: "Técnicas de Calidad de Software",
-      catedratico: "Ing. José Guillermo Rivera",
+      materia: "NORMAS Y ESTÁNDARES INTERNACIONALES",
+      catedratico: "Ing. Jose Orlando Giron Barrera",
       integrantes: [
         { nombre: "Basil García, Abraham Natanael", carnet: "25-1409-2016" },
         { nombre: "Borja Cano, Jennifer Alejandra", carnet: "25-3151-2021" },
