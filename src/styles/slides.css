@@ -1,0 +1,1125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0ea5e9;
+  --primary-dark: #0284c7;
+  --secondary: #06b6d4;
+  --accent: #38bdf8;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --dark: #0f172a;
+  --dark-2: #1e293b;
+  --dark-3: #334155;
+  --light: #f8fafc;
+  --text: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-dark: #64748b;
+  --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: var(--light);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* Efecto de partículas de fondo */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(14, 165, 233, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(168, 85, 247, 0.06) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+}
+
+.presentation-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Card contenedor de la slide */
+.slide {
+  width: 100%;
+  max-width: 1400px;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 4rem;
+  position: relative;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(148, 163, 184, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.slide::-webkit-scrollbar {
+  width: 8px;
+}
+
+.slide::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 10px;
+}
+
+.slide::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 10px;
+}
+
+.slide::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.5);
+}
+
+/* ================ PORTADA ================ */
+.slide-cover {
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.university-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.university-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle-small {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0.4rem 0;
+  font-weight: 400;
+}
+
+.main-title-section {
+  margin: 3.5rem 0;
+  position: relative;
+}
+
+.main-title-section::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+  border-radius: 2px;
+}
+
+.main-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-shadow: 0 0 80px rgba(56, 189, 248, 0.3);
+}
+
+.main-subtitle {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.team-section {
+  margin-top: 3rem;
+}
+
+.team-section h4 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.6) 0%,
+    rgba(30, 41, 59, 0.3) 100%
+  );
+  border-radius: 12px;
+  border-left: 3px solid var(--accent);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.1) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateX(4px);
+  border-left-color: #818cf8;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.8) 0%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+}
+
+.team-member:hover::before {
+  opacity: 1;
+}
+
+.member-name {
+  font-size: 0.95rem;
+  color: var(--light);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.member-carnet {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================ INTRODUCCIÓN ================ */
+.slide-intro {
+  max-width: 1100px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease;
+}
+
+.slide-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.02em;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.slide-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+  border-radius: 2px;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: justify;
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 12px;
+  border-left: 3px solid rgba(56, 189, 248, 0.5);
+  transition: all 0.3s ease;
+}
+
+.intro-paragraph:hover {
+  background: rgba(30, 41, 59, 0.5);
+  border-left-color: #38bdf8;
+  transform: translateX(4px);
+}
+
+/* ================ CAPÍTULO ================ */
+.slide-chapter {
+  text-align: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.chapter-icon {
+  font-size: 7rem;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.chapter-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.chapter-subtitle {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ================ CONTENIDO ================ */
+.slide-content {
+  max-width: 1200px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease;
+}
+
+.content-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.content-section {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(30, 41, 59, 0.3) 100%
+  );
+  padding: 1.8rem;
+  border-radius: 16px;
+  border-left: 4px solid var(--accent);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.05) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.content-section:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.7) 0%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+  border-left-color: #818cf8;
+  transform: translateX(4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.content-section:hover::before {
+  opacity: 1;
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.section-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-list {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-list li {
+  padding: 0.8rem 0 0.8rem 2.5rem;
+  position: relative;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: all 0.2s ease;
+}
+
+.section-list li:hover {
+  color: var(--light);
+  transform: translateX(8px);
+}
+
+.section-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+}
+
+.section-list li:hover::before {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+.subsection {
+  margin-top: 1.2rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(56, 189, 248, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.subsection-title {
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.subsection-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.subsection-list li {
+  padding: 0.5rem 0 0.5rem 1.8rem;
+  position: relative;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.subsection-list li:hover {
+  color: var(--light);
+  transform: translateX(6px);
+}
+
+.subsection-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 0.9;
+  transition: all 0.2s ease;
+}
+
+.subsection-list li:hover::before {
+  color: #818cf8;
+  transform: scale(1.3);
+}
+
+/* ================ GRID ================ */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.grid-column {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(30, 41, 59, 0.3) 100%
+  );
+  padding: 1.8rem;
+  border-radius: 16px;
+  border-top: 4px solid var(--accent);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.05) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-column:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.7) 0%,
+    rgba(30, 41, 59, 0.5) 100%
+  );
+  border-top-color: #818cf8;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.grid-column:hover::before {
+  opacity: 1;
+}
+
+/* ================ CONCLUSIÓN ================ */
+.slide-conclusion {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.conclusion-intro {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.conclusion-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.conclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.8rem;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.15) 0%,
+    rgba(16, 185, 129, 0.05) 100%
+  );
+  border-radius: 12px;
+  border-left: 4px solid var(--success);
+  font-size: 1.1rem;
+  color: var(--light);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.conclusion-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.conclusion-item:hover {
+  transform: translateX(8px);
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.25) 0%,
+    rgba(16, 185, 129, 0.1) 100%
+  );
+  box-shadow: var(--shadow-lg);
+}
+
+.conclusion-item:hover::before {
+  opacity: 1;
+}
+
+.check-icon {
+  color: var(--success);
+  font-size: 1.8rem;
+  font-weight: bold;
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));
+  position: relative;
+  z-index: 1;
+}
+
+/* ================ NAVEGACIÓN ================ */
+.navigation {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.8rem;
+  z-index: 100;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.6rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.nav-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+}
+
+.nav-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  box-shadow: none;
+}
+
+.nav-text {
+  display: inline;
+  font-weight: 600;
+}
+
+/* ================ CONTADOR ================ */
+.slide-counter {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 1.2rem;
+  color: var(--text);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.current {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.separator {
+  color: var(--text-dark);
+  font-weight: 300;
+}
+
+.total {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ================ RESPONSIVE ================ */
+@media (max-width: 1024px) {
+  .slide {
+    padding: 2.5rem 3rem;
+  }
+
+  .main-title {
+    font-size: 3.5rem;
+  }
+
+  .chapter-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ================ RESPONSIVE / MÓVIL ================ */
+
+/* Tablets y móviles grandes (hasta 768px) */
+/* ================ FIX CRÍTICO PARA MÓVIL ================ */
+@media (max-width: 768px) {
+  /* 1. DESBLOQUEAR EL BODY
+     Esto es lo más importante. En desktop lo teníamos hidden, 
+     aquí debe ser auto para permitir scroll natural. */
+  body {
+    overflow-y: auto !important;
+    height: auto !important;
+    position: relative;
+  }
+
+  /* 2. CONTENEDOR PRINCIPAL FLUIDO
+     Quitamos la altura fija de 100vh y dejamos que crezca. */
+  .presentation-container {
+    height: auto !important;
+    min-height: 100vh;
+    display: block; /* Cambiamos flex por block para evitar centrado forzado */
+    overflow: visible;
+    padding-top: 80px; /* Espacio para que la barra de arriba no tape el título */
+    padding-bottom: 120px; /* Espacio GIGANTE abajo para los botones */
+  }
+
+  /* 3. ARREGLO DE LA TARJETA (SLIDE)
+     Le quitamos el límite de altura para que se estire todo lo necesario. */
+  .slide {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important; /* Muestra todo el texto */
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    transform: none !important; /* Evita conflictos de posición con Framer Motion */
+  }
+
+  /* 4. POSICIONAR LA NAVEGACIÓN FIJA 
+     Aseguramos que los botones estén fijos abajo pero con fondo 
+     para que se lea bien sobre el texto si pasa por debajo. */
+  .navigation {
+    position: fixed;
+    bottom: 20px;
+    justify-content: center;
+    transform: translateX(-50%);
+    width: 40%;
+    max-width: 250px;
+    background: rgba(15, 23, 42, 0.95); /* Fondo oscuro sólido */
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    /* Estilo "Cristal" para que se vea moderno */
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 20px; /* Bordes muy redondos */
+    z-index: 1000; /* Siempre encima de todo */
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-button {
+    flex: 1;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* 5. AJUSTES DE TEXTO Y ESPACIADO */
+  .content-section {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem; /* Menos padding interno en las secciones */
+  }
+
+ .slide {
+    position: relative; /* Necesario para que el icono se posicione respecto a la slide */
+    overflow: hidden;   /* Mantiene los bordes redondos, pero recorta lo que salga */
+  }
+
+  .slide::before {
+    content: '⚛' !important; /* Forzamos el contenido */
+    display: block !important;
+    position: absolute;
+    
+    /* POSICIÓN: Lo metemos DENTRO de la tarjeta (valores positivos) */
+    top: 0rem !important;    
+    right: 0rem !important;  
+    
+    /* APARIENCIA */
+    font-size: 8rem !important; /* Tamaño grande pero no gigante */
+    color: #38bdf8 !important;  /* Color azul React */
+    opacity: 0.1 !important;    /* Subimos la opacidad (antes 0.04) para verlo bien */
+    
+    /* CAPAS */
+    z-index: 0; 
+    pointer-events: none;
+    line-height: 1; /* Evita espacios extraños */
+  }
+
+  /* Aseguramos que el texto esté ENCIMA del icono */
+  .slide-content, 
+  .slide-intro, 
+  .slide-cover,
+  .slide-chapter {
+    position: relative;
+    z-index: 2; /* Texto por encima del icono */
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  /* 1. Ajuste del Contenedor Principal */
+  .presentation-container {
+    padding: 0.5rem; /* Casi sin borde externo */
+    align-items: flex-start; /* Alinear arriba para aprovechar espacio */
+    padding-top: 4.5rem; /* Espacio para la App Bar y el Contador */
+  }
+
+  /* 2. Ajuste del Card (Slide) */
+  .slide {
+    padding: 2rem 1.2rem 5rem 1.2rem; /* Mucho espacio abajo para que el contenido no quede tapado por la nav */
+    border-radius: 16px;
+    height: auto;
+    max-height: none; /* Permitir scroll natural si es necesario */
+    overflow-y: visible; /* El scroll lo manejará el padre si hace falta */
+  }
+
+  /* 3. Tipografía Adaptada */
+  .main-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .main-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .slide-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .slide-title::after {
+    width: 50px; /* Línea decorativa más pequeña */
+  }
+
+  .section-heading {
+    font-size: 1.2rem;
+  }
+
+  /* 4. Iconos y Decoración */
+  .chapter-icon {
+    font-size: 4rem;
+  }
+
+  /* Ocultar el átomo de fondo si molesta en móvil */
+  .slide::before {
+    display: none;
+  }
+
+  /* 5. Ajuste de Grids y Listas */
+  .content-grid {
+    grid-template-columns: 1fr; /* Forzar 1 columna */
+    gap: 1rem;
+  }
+
+  .intro-paragraph {
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: left; /* Justificado en móvil se ve mal con palabras largas */
+  }
+
+  /* 6. Barra Superior y Contador */
+  .app-bar {
+    left: 0.5rem;
+    right: auto; /* Ya no se estira */
+    width: auto;
+    max-width: 70%;
+    top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .app-title {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .slide-counter {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    background: rgba(15, 23, 42, 0.9); /* Más opaco para leerse bien */
+  }
+
+  .current {
+    font-size: 1.2rem;
+  }
+
+  /* 7. Navegación (Botones abajo) */
+  .navigation {
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%); /* Centrar botones */
+    width: 90%;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .nav-button {
+    padding: 0.8rem 1.2rem;
+    width: 100%; /* Botones grandes para tocar fácil */
+    justify-content: center;
+  }
+
+  .nav-text {
+    display: none; /* Solo mostrar iconos (flechas) */
+  }
+}
+
+.tech-badges {
+  display: flex;
+  justify-content: center; /* Esto es lo que los centra horizontalmente */
+  gap: 1rem; /* Espacio entre cada badge */
+  margin-bottom: 2rem; /* Espacio debajo de los badges */
+  flex-wrap: wrap; /* Si hay muchos, bajan a la siguiente línea */
+}
+
+/* Estilo para que parezcan "píldoras" (Opcional, para que se vean mejor) */
+.tech-badge {
+  padding: 0.5rem 1.2rem;
+  background: rgba(56, 189, 248, 0.1); /* Azul muy transparente */
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8; /* Color de acento */
+  border-radius: 9999px; /* Bordes completamente redondos */
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+.tech-badge:hover {
+  background: rgba(56, 189, 248, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.slide::before {
+  content: "⚛";
+  position: absolute;
+  font-size: 16rem;
+  opacity: 0.04;
+  color: #38bdf8;
+  top: -2rem;
+  right: 3rem;
+  pointer-events: none;
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.15) 0%,
+    transparent 70%
+  );
+  bottom: -40px;
+  left: -40px;
+  pointer-events: none;
+}
+
+.app-bar {
+  position: fixed;
+  top: 0.8rem;
+  left: 1.5rem;
+  right: 7rem; /* deja espacio al contador */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  z-index: 90;
+}
+
+.app-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+}
+
+.app-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.app-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ejemplo: borde superior distinto por tipo */
+.slide-cover.slide {
+  border-top: 3px solid #38bdf8;
+}
+.slide-chapter.slide {
+  border-top: 3px solid #a855f7;
+}
+.slide-content.slide {
+  border-top: 3px solid #0ea5e9;
+}
